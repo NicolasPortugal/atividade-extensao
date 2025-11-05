@@ -13,7 +13,7 @@ Repositório criado com o objetivo de realizar a **Atividade de Extensão** **De
 
 | Função | Nome | RA |
 |:-------|:------|:------|
-| 🧑‍💻 Líder | *(Adicionar nome do líder)* | *(RA do líder)* |
+| 🧑‍💻 Líder | **Jackeline Paola Martins** | 25195840-2 |
 | 👤 Integrante 2 | **Daniel Fernando Abreu de Moraes** | 24001011-2 |
 | 👤 Integrante 3 | **Nicolas Felipe Oliveira Portugal** | 24518984-2 |
 | 👤 Integrante 4 | **Tamires de Sousa Martins** | 24489346-2 |
