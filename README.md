@@ -4,8 +4,8 @@ Repositório criado com o objetivo de realizar a **Atividade de Extensão** **De
 
 ---
 
-## 🏪 Nome do E-commerce
-> *(Adicione aqui o nome do seu e-commerce)*
+## 🏪 Nome
+> *Nome*
 
 ---
 
@@ -17,7 +17,7 @@ Repositório criado com o objetivo de realizar a **Atividade de Extensão** **De
 | 👤 Integrante 2 | **Daniel Fernando Abreu de Moraes** | 24001011-2 |
 | 👤 Integrante 3 | **Nicolas Felipe Oliveira Portugal** | 24518984-2 |
 | 👤 Integrante 4 | **Tamires de Sousa Martins** | 24489346-2 |
-| 👤 Integrante 5 | ** | ** |
+| 👤 Integrante 5 | **** | **** |
 
 ---
 
