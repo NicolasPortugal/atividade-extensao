@@ -1,6 +1,6 @@
 # 🛍️ Atividade de Extensão — Dev + Git
 
-Repositório criado com o objetivo de realizar a **Atividade de Extensão** da disciplina **Dev + Git**.
+Repositório criado com o objetivo de realizar a **Atividade de Extensão** **Dev + Git**.
 
 ---
 
