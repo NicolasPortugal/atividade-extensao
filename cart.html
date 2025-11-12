@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho de Compras</title>
+
+  <!-- CSS do cabeçalho -->
+  <link rel="stylesheet" href="./css/headerStyle.css" />
+
+</head>
+<body>
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <!-- Conteúdo principal -->
+  <main id="content" class="container">
+    <h1>Seu Carrinho</h1>
+
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Selecionar</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+          <th>Total</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" class="item-check" checked></td>
+          <td>Camisa Preta</td>
+          <td>2</td>
+          <td>R$ 59,90</td>
+          <td class="subtotal">119.80</td>
+          <td><button class="remove-btn">
+            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash">
+          </button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="item-check" checked></td>
+          <td>Tênis Branco</td>
+          <td>1</td>
+          <td>R$ 199,90</td>
+          <td class="subtotal">199.90</td>
+          <td><button class="remove-btn">
+            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash">
+          </button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="total" id="total">Total: R$ 319,70</p>
+
+    <a href="#" class="btn-finalizar" id="finalizar-btn">Finalizar Compra</a>
+  </main>
+
+  <script src="./js/header.js"></script>
+  <script src="./js/carrinho.js"></script>
+
+</body>
+</html>
