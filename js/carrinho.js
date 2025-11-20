@@ -37,5 +37,12 @@ document.getElementById("finalizar-btn").addEventListener("click", (e) => {
   alert("Compra finalizada com sucesso! (" + selecionados.length + " item(s))");
 });
 
+document.getElementById("select-all").addEventListener("change", function() {
+  document.querySelectorAll(".item-check").forEach(ch => {
+    ch.checked = this.checked;
+  });
+});
+
+
 // Atualiza total inicial
 atualizarTotal();
