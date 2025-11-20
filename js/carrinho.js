@@ -63,6 +63,23 @@ document.querySelectorAll(".item-check").forEach(ch => {
   });
 });
 
+function updateTotal() {
+  let total = 0;
+  document.querySelectorAll("tbody tr").forEach(row => {
+    const checked = row.querySelector(".item-check").checked;
+    const subtotal = parseFloat(row.querySelector(".subtotal").textContent);
+    if (checked) total += subtotal;
+  });
+
+  document.getElementById("total").textContent =
+    `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+document.querySelectorAll(".item-check").forEach(ch => {
+  ch.addEventListener("change", updateTotal);
+});
+
+updateTotal();
 
 
 // Atualiza total inicial
