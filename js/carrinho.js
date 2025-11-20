@@ -56,6 +56,14 @@ document.querySelectorAll(".item-check").forEach(ch => {
 
 checkSelected();
 
+document.querySelectorAll(".item-check").forEach(ch => {
+  ch.addEventListener("change", () => {
+    const row = ch.closest("tr");
+    row.classList.toggle("selected", ch.checked);
+  });
+});
+
+
 
 // Atualiza total inicial
 atualizarTotal();

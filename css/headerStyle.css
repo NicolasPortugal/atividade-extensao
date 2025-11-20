@@ -149,3 +149,7 @@ main {
     .btn-finalizar:hover {
       background-color: #1a5edb;
     }
+
+    tr.selected {
+      background-color: #e6f0ff;
+    }
