@@ -43,6 +43,19 @@ document.getElementById("select-all").addEventListener("change", function() {
   });
 });
 
+function checkSelected() {
+  const any = [...document.querySelectorAll(".item-check")]
+              .some(ch => ch.checked);
+  document.getElementById("finalizar-btn").style.pointerEvents = any ? "auto" : "none";
+  document.getElementById("finalizar-btn").style.opacity = any ? "1" : "0.5";
+}
+
+document.querySelectorAll(".item-check").forEach(ch => {
+  ch.addEventListener("change", checkSelected);
+});
+
+checkSelected();
+
 
 // Atualiza total inicial
 atualizarTotal();
