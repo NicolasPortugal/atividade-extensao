@@ -1,86 +1,64 @@
-function atualizarTotal() {
-  const checkboxes = document.querySelectorAll(".item-check");
+function atualizarTudo() {
   let total = 0;
+  let anyChecked = false;
 
-  checkboxes.forEach((check) => {
+  document.querySelectorAll("tbody tr").forEach(row => {
+    const check = row.querySelector(".item-check");
+    const subtotal = parseFloat(row.querySelector(".subtotal").textContent);
+
+    // fundo azul quando marcado
+    row.classList.toggle("selected", check.checked);
+
     if (check.checked) {
-      const linha = check.closest("tr");
-      total += parseFloat(linha.querySelector(".subtotal").textContent);
+      total += subtotal;
+      anyChecked = true;
     }
   });
 
-  document.getElementById("total").textContent = "Total: R$ " + total.toFixed(2).replace('.', ',');
+  // atualizar total
+  document.getElementById("total").textContent =
+    `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+
+  // ativar/desativar botão de finalizar
+  const btn = document.getElementById("finalizar-btn");
+  btn.style.pointerEvents = anyChecked ? "auto" : "none";
+  btn.style.opacity = anyChecked ? "1" : "0.5";
 }
 
-// Remover item do carrinho
+// remover item
 document.querySelectorAll(".remove-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     const linha = e.target.closest("tr");
     linha.remove();
-    atualizarTotal();
+    atualizarTudo();
   });
 });
 
-// Atualiza o total ao marcar/desmarcar produtos
-document.querySelectorAll(".item-check").forEach(check => {
-  check.addEventListener("change", atualizarTotal);
+// marcar/desmarcar individual
+document.querySelectorAll(".item-check").forEach(ch => {
+  ch.addEventListener("change", atualizarTudo);
 });
 
-// Finalizar compra
+// selecionar tudo (select-all)
+document.getElementById("select-all").addEventListener("change", function () {
+  document.querySelectorAll(".item-check").forEach(ch => {
+    ch.checked = this.checked;
+    ch.dispatchEvent(new Event("change")); // força atualização do fundo e total
+  });
+});
+
+// finalizar compra
 document.getElementById("finalizar-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const selecionados = document.querySelectorAll(".item-check:checked");
+
   if (selecionados.length === 0) {
     alert("Selecione ao menos um item para comprar.");
     return;
   }
-  alert("Compra finalizada com sucesso! (" + selecionados.length + " item(s))");
+
+  alert(`Compra finalizada com sucesso! (${selecionados.length} item(s))`);
 });
 
-document.getElementById("select-all").addEventListener("change", function() {
-  document.querySelectorAll(".item-check").forEach(ch => {
-    ch.checked = this.checked;
-  });
-});
-
-function checkSelected() {
-  const any = [...document.querySelectorAll(".item-check")]
-              .some(ch => ch.checked);
-  document.getElementById("finalizar-btn").style.pointerEvents = any ? "auto" : "none";
-  document.getElementById("finalizar-btn").style.opacity = any ? "1" : "0.5";
-}
-
-document.querySelectorAll(".item-check").forEach(ch => {
-  ch.addEventListener("change", checkSelected);
-});
-
-checkSelected();
-
-document.querySelectorAll(".item-check").forEach(ch => {
-  ch.addEventListener("change", () => {
-    const row = ch.closest("tr");
-    row.classList.toggle("selected", ch.checked);
-  });
-});
-
-function updateTotal() {
-  let total = 0;
-  document.querySelectorAll("tbody tr").forEach(row => {
-    const checked = row.querySelector(".item-check").checked;
-    const subtotal = parseFloat(row.querySelector(".subtotal").textContent);
-    if (checked) total += subtotal;
-  });
-
-  document.getElementById("total").textContent =
-    `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
-}
-
-document.querySelectorAll(".item-check").forEach(ch => {
-  ch.addEventListener("change", updateTotal);
-});
-
-updateTotal();
-
-
-// Atualiza total inicial
-atualizarTotal();
+// atualizar ao iniciar
+atualizarTudo();
