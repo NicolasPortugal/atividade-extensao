@@ -5,18 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>E-commerce — Página Inicial</title>
   <link rel="stylesheet" href="./css/headerStyle.css" />
+  <link rel="stylesheet" href="./css/homeStyle.css" />
 </head>
 <body>
-  <!-- cabeçalho será inserido pelo header.js -->
+
   <div id="site-header"></div>
 
-  <!-- Conteúdo principal -->
   <main id="content" class="container">
-    <h1>espaço para conteúdo</h1>
-    <p>HOME</p>
-  </main>
+    <section class="hero">
+      <h1>Bem-vindo à Loja</h1>
+      <p>Escolha seus produtos favoritos</p>
+    </section>
 
-  <!-- Script do header -->
+    <section id="produtos" class="lista-produtos">
+      <h2 class="titulo-produtos">Produtos</h2>
+    
+      <div class="grid-produtos">
+    
+        <article class="produto">
+          <img src="./img/produto1.jpg" alt="Produto 1" class="produto-img">
+          <h3 class="produto-nome">Produto 1</h3>
+          <p class="produto-preco">R$ 49,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+        <article class="produto">
+          <img src="./img/produto2.jpg" alt="Produto 2" class="produto-img">
+          <h3 class="produto-nome">Produto 2</h3>
+          <p class="produto-preco">R$ 89,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+        <article class="produto">
+          <img src="./img/produto3.jpg" alt="Produto 3" class="produto-img">
+          <h3 class="produto-nome">Produto 3</h3>
+          <p class="produto-preco">R$ 29,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+      </div>
+    </section>
+    
+  </main>
+  <footer id="site-footer" class="footer">
+    <p class="footer-text">&copy; 2025 — Minha Loja. Todos os direitos reservados.</p>
+  </footer>
+  
+
   <script src="./js/script.js"></script>
 </body>
 </html>
+
+
