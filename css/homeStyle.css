@@ -62,4 +62,22 @@ body {
     padding: 20px;
     background-color: #f1f1f1;
   }
+
+  /* Faz a página ocupar 100% da altura */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Empurra o rodapé para o final */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* O conteúdo cresce e empurra o footer */
+  main {
+    flex: 1;
+  }
+  
   
