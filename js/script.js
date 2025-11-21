@@ -1,4 +1,4 @@
-/* Insere o header dinamicamente */
+// Insere o header dinamicamente
 (function () {
     const headerContainer = document.getElementById("site-header");
     if (!headerContainer) return;
@@ -18,20 +18,34 @@
                 </nav>
 
                 <a href="./cart.html" class="cart-link" aria-label="Ir para o carrinho">
-                    <img src="./img/iconeCarrinhoSVG.svg" alt="Ícone do carrinho" class="cart-icon" />
                     <span id="cart-count">0</span>
+                    <img src="./img/iconeCarrinhoSVG.svg" alt="Ícone do carrinho" class="cart-icon" />
                     <span id="cart-total">R$ 0,00</span>
                 </a>
             </div>
         </header>
     `;
 })();
-  
 
-/* Atualiza o carrinho se existir */
+// Atualiza o header com base no localStorage
+function atualizarHeaderContador() {
+    const cart = JSON.parse(localStorage.getItem("carrinho")) || [];
+    let quantidade = cart.length;
+    let total = 0;
+
+    cart.forEach(item => total += item.subtotal || 0);
+
+    const countEl = document.getElementById("cart-count");
+    const totalEl = document.getElementById("cart-total");
+
+    if (countEl) countEl.textContent = quantidade;
+    if (totalEl) totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+// Atualiza a tabela do carrinho
 function atualizarCarrinho() {
     const table = document.querySelector("#cart-table tbody");
-    if (!table) return; // se não estiver no cart.html, parar
+    if (!table) return;
 
     let total = 0;
     let anyChecked = false;
@@ -49,9 +63,7 @@ function atualizarCarrinho() {
     });
 
     const totalEl = document.getElementById("total");
-    if (totalEl) {
-        totalEl.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
-    }
+    if (totalEl) totalEl.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
 
     const btn = document.getElementById("finalizar-btn");
     if (btn) {
@@ -62,29 +74,15 @@ function atualizarCarrinho() {
     atualizarHeaderContador();
 }
 
-
-/* Atualiza contagem e valor no header */
-function atualizarHeaderContador() {
-    const rows = document.querySelectorAll("tbody tr");
-    let quantidade = rows.length;
-    let total = 0;
-
-    rows.forEach(row => {
-        const subtotal = parseFloat(row.querySelector(".subtotal").textContent);
-        total += subtotal;
-    });
-
-    const countEl = document.getElementById("cart-count");
-    const totalEl = document.getElementById("cart-total");
-
-    if (countEl) countEl.textContent = quantidade;
-    if (totalEl) totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-}
-
-
-/* Eventos do cart.html */
+// Eventos do carrinho
 document.addEventListener("DOMContentLoaded", () => {
-    if (!document.querySelector("#cart-table")) return;
+    const isCartPage = document.querySelector("#cart-table");
+
+    // Sempre atualizar header em qualquer página
+    atualizarHeaderContador();
+
+    // Só executa os eventos abaixo se estiver no carrinho
+    if (!isCartPage) return;
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
