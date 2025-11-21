@@ -27,13 +27,16 @@
     `;
 })();
 
-// Atualiza o header com base no localStorage
+// Atualiza o header com quantidade e total
 function atualizarHeaderContador() {
     const cart = JSON.parse(localStorage.getItem("carrinho")) || [];
-    let quantidade = cart.length;
-    let total = 0;
 
-    cart.forEach(item => total += item.subtotal || 0);
+    const quantidade = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const total = cart.reduce((sum, item) => {
+        const price = item.price || 0;
+        const qtd = item.quantity || 1;
+        return sum + price * qtd;
+    }, 0);
 
     const countEl = document.getElementById("cart-count");
     const totalEl = document.getElementById("cart-total");
@@ -78,15 +81,20 @@ function atualizarCarrinho() {
 document.addEventListener("DOMContentLoaded", () => {
     const isCartPage = document.querySelector("#cart-table");
 
-    // Sempre atualizar header em qualquer página
-    atualizarHeaderContador();
+    atualizarHeaderContador(); // Atualiza header em todas as páginas
 
-    // Só executa os eventos abaixo se estiver no carrinho
-    if (!isCartPage) return;
+    if (!isCartPage) return; // Só executa abaixo se estiver no carrinho
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const linha = e.target.closest("tr");
+
+            // Remove item do localStorage
+            const nome = linha.getAttribute("data-nome");
+            let cart = JSON.parse(localStorage.getItem("carrinho")) || [];
+            cart = cart.filter(item => item.nome !== nome);
+            localStorage.setItem("carrinho", JSON.stringify(cart));
+
             linha.remove();
             atualizarCarrinho();
         });
@@ -110,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (finalizar) {
         finalizar.addEventListener("click", (e) => {
             e.preventDefault();
-            const selecionados = document.querySelectorAll(".item-check:checked");
 
+            const selecionados = document.querySelectorAll(".item-check:checked");
             if (selecionados.length === 0) {
                 alert("Selecione ao menos um item para comprar.");
                 return;
