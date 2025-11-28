@@ -3,6 +3,18 @@
 html, body { margin: 0; padding: 0; }
 body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
+:root {
+  --cor-primaria: #1A2E80;   
+  --cor-secundaria: #F28C28; 
+  --cor-preto: #000000;
+  --cor-branco: #FFFFFF;
+
+  /* Utilidades */
+  --cor-cinza-claro: #f2f2f2;
+  --cor-sombra: rgba(0, 0, 0, 0.12);
+}
+
+
 /* Container genérico */
 .container {
   max-width: 1100px;
@@ -159,21 +171,24 @@ tr.selected {
    ================================ */
 
 /* Secção hero da home */
+/* HERO */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2.5rem;
   padding: 2.5rem 2rem;
-  background: linear-gradient(135deg, #6366f1, #ec4899);
   border-radius: 20px;
-  color: #ffffff;
   margin-top: 2rem;
+  
+  background: var(--cor-primaria); /* azul */
+  color: var(--cor-branco);
 }
 
 .hero-texto h1 {
   font-size: clamp(2rem, 3vw, 2.8rem);
   margin-bottom: 1rem;
+  color: var(--cor-branco);
 }
 
 .hero-texto p {
@@ -181,7 +196,9 @@ tr.selected {
   max-width: 420px;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  color: var(--cor-branco);
 }
+
 
 .hero-acoes {
   display: flex;
@@ -205,25 +222,27 @@ tr.selected {
 }
 
 .btn-primary {
-  background-color: #ffffff;
-  color: #111827;
-  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.3);
+  background-color: var(--cor-secundaria); /* laranja */
+  color: var(--cor-branco);
+  border: none;
+  box-shadow: 0 12px 25px var(--cor-sombra);
 }
 
 .btn-primary:hover {
+  background-color: #cf741f; /* laranja mais escuro */
   transform: translateY(-2px);
-  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.4);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--cor-branco);
+  border: 2px solid var(--cor-branco);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.15);
 }
+
 
 /* Imagem no hero */
 .hero-imagem img {
