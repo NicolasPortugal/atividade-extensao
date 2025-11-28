@@ -6,6 +6,7 @@
   <title>Loja</title>
   <!-- css do cabeçalho -->
   <link rel="stylesheet" href="./css/headerStyle.css" />
+  <link rel="stylesheet" href="./css/homeStyle.css" />
 </head>
 <body>
   <!-- header -->
@@ -13,8 +14,41 @@
 
   <!-- Conteúdo da página  -->
   <main id="content" class="container">
-    <h1>Conteúdo pode ser inserido aqui</h1>
-    <P>LOJA</P>
+    
+
+    <section class="hero">
+      <h1>Bem-vindo à Loja</h1>
+      <p>Escolha seus produtos favoritos</p>
+    </section>
+
+    <section id="produtos" class="lista-produtos">
+      <h2 class="titulo-produtos">Produtos</h2>
+    
+      <div class="grid-produtos">
+    
+        <article class="produto">
+          <img src="./img/produto1.jpg" alt="Produto 1" class="produto-img">
+          <h3 class="produto-nome">Produto 1</h3>
+          <p class="produto-preco">R$ 49,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+        <article class="produto">
+          <img src="./img/produto2.jpg" alt="Produto 2" class="produto-img">
+          <h3 class="produto-nome">Produto 2</h3>
+          <p class="produto-preco">R$ 89,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+        <article class="produto">
+          <img src="./img/produto3.jpg" alt="Produto 3" class="produto-img">
+          <h3 class="produto-nome">Produto 3</h3>
+          <p class="produto-preco">R$ 29,90</p>
+          <button class="btn-add">Adicionar ao carrinho</button>
+        </article>
+    
+      </div>
+    </section>
   </main>
 
   <!-- Script do header -->
