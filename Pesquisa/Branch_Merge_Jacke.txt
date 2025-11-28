@@ -1,0 +1,36 @@
+O que é uma Branch?
+
+Uma branch (ramo) é uma linha independente de desenvolvimento dentro de um repositório Git.
+Ela permite que novas funcionalidades, correcções ou conteúdos sejam criados sem alterar o código principal.
+
+Por que usar uma branch?
+
+Evita mexer directamente na versão estável do projecto (main).
+
+Permite que várias pessoas trabalhem em partes diferentes ao mesmo tempo.
+
+Mantém o projecto organizado, separando tarefas por contexto (ex.: feat/, fix/, docs/).
+
+Exemplo prático
+
+Ao criar uma branch, estás a dizer:
+"Quero trabalhar nesta ideia aqui, separada do resto, para não quebrar nada enquanto desenvolvo.”
+
+O que é Merge?
+
+O merge é o processo de juntar as alterações feitas numa branch para outra, normalmente para a main.
+É como unir caminhos: tudo o que foi desenvolvido na branch é incorporado na linha principal do projecto.
+
+Quando usar merge?
+
+Após terminar uma funcionalidade.
+
+Depois de escrever documentação.
+
+Quando uma correcção de bug está pronta.
+
+Se o conteúdo foi testado e está a funcionar correctamente.
+
+Exemplo prático
+
+Depois de concluir o desenvolvimento numa branch como docs/branch-merge, usas merge para enviar esse conteúdo final para a main, adicionando o teu trabalho ao projecto principal.
