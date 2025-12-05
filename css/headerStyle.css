@@ -309,3 +309,6 @@ tr.selected {
     grid-template-columns: 1fr;
   }
 }
+#cart-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
