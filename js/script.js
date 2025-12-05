@@ -87,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
+            // Verifica se o usuário confirma a ação
+            if (!confirm("Tem certeza que deseja remover este item?")) return;
+
             const linha = e.target.closest("tr");
 
             // Remove item do localStorage
