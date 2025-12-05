@@ -70,7 +70,13 @@ function atualizarCarrinho() {
 
     const btn = document.getElementById("finalizar-btn");
     if (btn) {
-        btn.style.pointerEvents = anyChecked ? "auto" : "none";
+        if (anyChecked) {
+            btn.classList.remove("btn-disabled");
+            btn.style.pointerEvents = "auto"; 
+        } else {
+            btn.classList.add("btn-disabled");
+            btn.style.pointerEvents = "none";
+        }
         btn.style.opacity = anyChecked ? "1" : "0.5";
     }
 
