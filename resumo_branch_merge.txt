@@ -1,0 +1,5 @@
+Uma “branch” é como criar um caminho separado para trabalhar em mudanças
+sem mexer na versão principal de um projeto. Assim você pode testar
+ideias com segurança. Já o “merge” é o momento de juntar esse caminho de
+volta ao principal, unindo tudo o que foi feito de forma organizada e
+simples.
