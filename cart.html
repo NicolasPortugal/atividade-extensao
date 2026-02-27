@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carrinho de Compras</title>
+  <title>Carrinho 🛒</title>
 
   <!-- CSS do cabeçalho -->
   <link rel="stylesheet" href="./css/headerStyle.css" />
@@ -29,11 +29,11 @@
           </th>
           
 
-          <th>Produto</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-          <th>Total</th>
-          <th>Ações</th>
+          <th scope="col">Produto</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Total</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -44,7 +44,7 @@
           <td>R$ 59,90</td>
           <td class="subtotal">119.80</td>
           <td><button class="remove-btn">
-            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash">
+            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash" loading="lazy">
           </button></td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
           <td>R$ 199,90</td>
           <td class="subtotal">199.90</td>
           <td><button class="remove-btn">
-            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash">
+            <img src="img/lixo-removebg-preview.png" alt="Remover" class="icon-trash" loading="lazy">
           </button></td>
         </tr>
       </tbody>
@@ -63,6 +63,10 @@
     <p class="total" id="total">Total: R$ 319,70</p>
 
     <a href="#" class="btn-finalizar" id="finalizar-btn">Finalizar Compra</a>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <a href="loja.html" style="text-decoration: none; color: #555;">&larr; Continuar Comprando</a>
+    </div>
   </main>
 
   <script src="./js/script.js"></script>

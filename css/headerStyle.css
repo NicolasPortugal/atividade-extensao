@@ -100,6 +100,7 @@ th, td {
   padding: 12px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  vertical-align: middle; 
 }
 
 th {
@@ -140,8 +141,10 @@ td input[type="checkbox"] {
 
 .total {
   text-align: right;
-  font-size: 1.2em;
+  font-size: 1.5rem; /* Aumentado de 1.2em */
+  color: var(--cor-primaria); /* Usa a cor azul do tema */
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .btn-finalizar {
@@ -308,4 +311,12 @@ tr.selected {
   .cards-destaque {
     grid-template-columns: 1fr;
   }
+}
+#cart-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+#cart-table td {
+    white-space: nowrap;
 }

@@ -70,7 +70,13 @@ function atualizarCarrinho() {
 
     const btn = document.getElementById("finalizar-btn");
     if (btn) {
-        btn.style.pointerEvents = anyChecked ? "auto" : "none";
+        if (anyChecked) {
+            btn.classList.remove("btn-disabled");
+            btn.style.pointerEvents = "auto"; 
+        } else {
+            btn.classList.add("btn-disabled");
+            btn.style.pointerEvents = "none";
+        }
         btn.style.opacity = anyChecked ? "1" : "0.5";
     }
 
@@ -87,6 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
+            // Verifica se o usuário confirma a ação
+            if (!confirm("Tem certeza que deseja remover este item?")) return;
+
             const linha = e.target.closest("tr");
 
             // Remove item do localStorage
